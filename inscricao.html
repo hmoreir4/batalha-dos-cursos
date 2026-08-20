@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inscrição | Batalha dos Cursos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --azul: #061329;
+            --azul-escuro: #020817;
+            --dourado: #f7b900;
+            --dourado-claro: #ffd43b;
+            --branco: #ffffff;
+            --cinza: #b9bec8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Montserrat", sans-serif;
+
+            color: var(--branco);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(247, 185, 0, 0.13),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #020817,
+                    #061329,
+                    #020817
+                );
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        header {
+            border-bottom: 1px solid rgba(247, 185, 0, 0.35);
+
+            background: rgba(2, 8, 23, 0.95);
+        }
+
+        .navbar {
+            max-width: 1100px;
+
+            min-height: 85px;
+
+            margin: auto;
+            padding: 10px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            color: white;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 60px;
+            height: 60px;
+
+            object-fit: contain;
+        }
+
+        .brand-title {
+            font-family: "Anton", sans-serif;
+
+            font-size: 27px;
+            line-height: 0.9;
+        }
+
+        .brand-subtitle {
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: 22px;
+
+            color: var(--dourado);
+        }
+
+        .back {
+            color: var(--dourado);
+
+            text-decoration: none;
+
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: 20px;
+
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            color: var(--dourado-claro);
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 65px 20px 90px;
+        }
+
+        .title {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .title img {
+            width: 120px;
+            height: 120px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 0 25px rgba(247, 185, 0, 0.25)
+                );
+        }
+
+        .title h1 {
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(50px, 8vw, 75px);
+
+            line-height: 0.9;
+
+            text-transform: uppercase;
+        }
+
+        .title h1 span {
+            display: block;
+
+            color: var(--dourado);
+        }
+
+        .title p {
+            max-width: 600px;
+
+            margin: 20px auto 0;
+
+            color: var(--cinza);
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           FORMULÁRIO
+        ========================= */
+
+        .form-card {
+            padding: 35px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0c1b31,
+                    #071020
+                );
+
+            border: 1px solid rgba(247, 185, 0, 0.45);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-title {
+            margin-bottom: 30px;
+
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: 32px;
+
+            color: var(--dourado);
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 9px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        .required {
+            color: var(--dourado);
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 16px;
+
+            color: white;
+
+            background: #020817;
+
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--dourado);
+
+            box-shadow:
+                0 0 0 3px rgba(247, 185, 0, 0.08);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .two-columns {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        /* =========================
+           AVISO
+        ========================= */
+
+        .warning {
+            margin: 25px 0;
+
+            padding: 18px;
+
+            border-left: 4px solid var(--dourado);
+
+            background: rgba(247, 185, 0, 0.07);
+
+            border-radius: 7px;
+        }
+
+        .warning strong {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: var(--dourado);
+        }
+
+        .warning p {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CHECKBOX
+        ========================= */
+
+        .checkbox {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            margin: 25px 0;
+        }
+
+        .checkbox input {
+            width: 19px;
+            height: 19px;
+
+            margin-top: 2px;
+
+            accent-color: var(--dourado);
+
+            cursor: pointer;
+        }
+
+        .checkbox label {
+            margin: 0;
+
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        button {
+            width: 100%;
+
+            padding: 18px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--dourado);
+
+            color: #071020;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background: var(--dourado-claro);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(247, 185, 0, 0.2);
+        }
+
+        .back-home {
+            display: block;
+
+            width: fit-content;
+
+            margin: 25px auto 0;
+
+            color: var(--cinza);
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            color: var(--dourado);
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 15px;
+            }
+
+            .brand-title {
+                font-size: 22px;
+            }
+
+            .brand-subtitle {
+                font-size: 18px;
+            }
+
+            .brand img {
+                width: 52px;
+                height: 52px;
+            }
+
+            .back {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 45px 15px 70px;
+            }
+
+            .title img {
+                width: 95px;
+                height: 95px;
+            }
+
+            .form-card {
+                padding: 25px 18px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="navbar">
+
+            <a href="index.html" class="brand">
+
+                <img
+                    src="./logo-atletica.png"
+                    alt="Logo da Atlética FSA"
+                >
+
+                <div>
+
+                    <div class="brand-title">
+                        BATALHA
+                    </div>
+
+                    <div class="brand-subtitle">
+                        DOS CURSOS
+                    </div>
+
+                </div>
+
+            </a>
+
+            <a href="index.html" class="back">
+                ← Voltar
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <div class="container">
+
+
+            <!-- TÍTULO -->
+
+            <div class="title">
+
+                <img
+                    src="./logo-atletica.png"
+                    alt="Atlética FSA"
+                >
+
+                <h1>
+
+                    Inscreva
+
+                    <span>seu curso</span>
+
+                </h1>
+
+                <p>
+
+                    Monte o grupo oficial do seu curso e
+                    prepare-se para a Batalha dos Cursos
+                    no dia 19 de setembro.
+
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+
+            <div class="form-card">
+
+                <div class="form-title">
+                    🏆 Dados do grupo
+                </div>
+
+
+                <form id="formInscricao">
+
+
+                    <!-- CURSO -->
+
+                    <div class="form-group">
+
+                        <label for="curso">
+
+                            Curso
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <select id="curso" required>
+
+                            <option value="">
+                                Selecione seu curso
+                            </option>
+
+                            <option>
+                                Administração
+                            </option>
+
+                            <option>
+                                Ciências Contábeis
+                            </option>
+
+                            <option>
+                                Direito
+                            </option>
+
+                            <option>
+                                Engenharia
+                            </option>
+
+                            <option>
+                                Sistemas de Informação
+                            </option>
+
+                            <option>
+                                Outro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- NOME DO GRUPO -->
+
+                    <div class="form-group">
+
+                        <label for="grupo">
+
+                            Nome do grupo
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="grupo"
+                            placeholder="Ex.: Os Imbatíveis"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- REPRESENTANTE -->
+
+                    <div class="form-group">
+
+                        <label for="representante">
+
+                            Capitão / Representante
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="representante"
+                            placeholder="Nome completo"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- WHATSAPP + PARTICIPANTES -->
+
+                    <div class="two-columns">
+
+                        <div class="form-group">
+
+                            <label for="whatsapp">
+
+                                WhatsApp
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="whatsapp"
+                                placeholder="(11) 99999-9999"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="participantes">
+
+                                Número de integrantes
+
+                                <span class="required">
+                                    *
+                                </span>
+
+                            </label>
+
+                            <input
+                                type="number"
+                                id="participantes"
+                                min="1"
+                                placeholder="Ex.: 20"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AVISO -->
+
+                    <div class="warning">
+
+                        <strong>
+                            ⚠️ Atenção
+                        </strong>
+
+                        <p>
+
+                            Cada curso poderá ter apenas
+                            <strong>1 grupo oficial</strong>
+                            na Batalha dos Cursos.
+
+                            Certifique-se de que você é o
+                            representante responsável pelo
+                            grupo antes de enviar a inscrição.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- CONFIRMAÇÃO -->
+
+                    <div class="checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="confirmacao"
+                            required
+                        >
+
+                        <label for="confirmacao">
+
+                            Confirmo que sou o representante
+                            responsável pelo grupo e que as
+                            informações fornecidas são verdadeiras.
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- BOTÃO -->
+
+                    <button type="submit">
+
+                        🏆 Enviar inscrição
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Voltar para a página inicial
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const formulario =
+            document.getElementById("formInscricao");
+
+        formulario.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "🎉 Inscrição preenchida com sucesso! " +
+                    "Em breve vamos confirmar o cadastro do seu grupo."
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
