@@ -3,16 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Batalha dos Cursos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                radial-gradient(circle at center, #3b0909 0%, #120303 40%, #080808 75%);
+        }
+
+        .trophy {
+            font-size: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(255, 170, 0, 0.5));
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 90px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            line-height: 0.95;
+        }
+
+        .hero h1 span {
+            color: #ff3b30;
+        }
+
+        .subtitle {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #cccccc;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .button {
+            margin-top: 35px;
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 10px;
+            background: #ff3b30;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.2s;
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.25);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #ff5147;
+        }
+
+        .ranking-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .ranking {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .course {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 22px 25px;
+
+            background: #151515;
+            border: 1px solid #292929;
+            border-radius: 14px;
+
+            transition: 0.2s;
+        }
+
+        .course:hover {
+            transform: translateY(-2px);
+            border-color: #ff3b30;
+        }
+
+        .position {
+            font-size: 28px;
+            width: 55px;
+        }
+
+        .course-name {
+            flex: 1;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .points {
+            color: #ff3b30;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #1c1c1c;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .course {
+                padding: 18px;
+            }
+
+            .course-name {
+                font-size: 17px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>🏆 Batalha dos Cursos</h1>
-    <p>Última prova. Última batalha.</p>
 
-    <h2>Ranking</h2>
+    <section class="hero">
 
-    <p>Engenharia — 0 pontos</p>
-    <p>Administração — 0 pontos</p>
-    <p>Direito — 0 pontos</p>
+        <div class="trophy">🏆</div>
+
+        <h1>
+            Batalha<br>
+            <span>dos Cursos</span>
+        </h1>
+
+        <p class="subtitle">
+            Última prova. Última batalha.
+        </p>
+
+        <a href="#ranking" class="button">
+            Ver ranking
+        </a>
+
+    </section>
+
+
+    <section class="ranking-section" id="ranking">
+
+        <h2 class="section-title">
+            🏆 Ranking
+        </h2>
+
+        <div class="ranking">
+
+            <div class="course">
+                <div class="position">🥇</div>
+                <div class="course-name">Engenharia</div>
+                <div class="points">0 pontos</div>
+            </div>
+
+            <div class="course">
+                <div class="position">🥈</div>
+                <div class="course-name">Administração</div>
+                <div class="points">0 pontos</div>
+            </div>
+
+            <div class="course">
+                <div class="position">🥉</div>
+                <div class="course-name">Direito</div>
+                <div class="points">0 pontos</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Batalha dos Cursos • ATLETICA-FSA
+    </footer>
+
 </body>
 </html>
