@@ -30,9 +30,7 @@
 
         body {
             min-height: 100vh;
-
             font-family: "Montserrat", sans-serif;
-
             color: var(--branco);
 
             background:
@@ -49,21 +47,14 @@
                 );
         }
 
-        /* =========================
-           CABEÇALHO
-        ========================= */
-
         header {
             border-bottom: 1px solid rgba(247, 185, 0, 0.35);
-
             background: rgba(2, 8, 23, 0.95);
         }
 
         .navbar {
             max-width: 1100px;
-
             min-height: 85px;
-
             margin: auto;
             padding: 10px 25px;
 
@@ -85,32 +76,26 @@
         .brand img {
             width: 60px;
             height: 60px;
-
             object-fit: contain;
         }
 
         .brand-title {
             font-family: "Anton", sans-serif;
-
             font-size: 27px;
             line-height: 0.9;
         }
 
         .brand-subtitle {
             font-family: "Bebas Neue", sans-serif;
-
             font-size: 22px;
-
             color: var(--dourado);
         }
 
         .back {
             color: var(--dourado);
-
             text-decoration: none;
 
             font-family: "Bebas Neue", sans-serif;
-
             font-size: 20px;
 
             transition: 0.2s;
@@ -120,31 +105,22 @@
             color: var(--dourado-claro);
         }
 
-        /* =========================
-           CONTAINER
-        ========================= */
-
         .container {
             width: 100%;
             max-width: 850px;
-
             margin: auto;
-
             padding: 65px 20px 90px;
         }
 
         .title {
             text-align: center;
-
             margin-bottom: 40px;
         }
 
         .title img {
             width: 120px;
             height: 120px;
-
             object-fit: contain;
-
             margin-bottom: 15px;
 
             filter:
@@ -155,33 +131,22 @@
 
         .title h1 {
             font-family: "Anton", sans-serif;
-
             font-size: clamp(50px, 8vw, 75px);
-
             line-height: 0.9;
-
             text-transform: uppercase;
         }
 
         .title h1 span {
             display: block;
-
             color: var(--dourado);
         }
 
         .title p {
             max-width: 600px;
-
             margin: 20px auto 0;
-
             color: var(--cinza);
-
             line-height: 1.7;
         }
-
-        /* =========================
-           FORMULÁRIO
-        ========================= */
 
         .form-card {
             padding: 35px;
@@ -194,7 +159,6 @@
                 );
 
             border: 1px solid rgba(247, 185, 0, 0.45);
-
             border-radius: 18px;
 
             box-shadow:
@@ -205,9 +169,7 @@
             margin-bottom: 30px;
 
             font-family: "Bebas Neue", sans-serif;
-
             font-size: 32px;
-
             color: var(--dourado);
         }
 
@@ -217,11 +179,9 @@
 
         label {
             display: block;
-
             margin-bottom: 9px;
 
             font-size: 14px;
-
             font-weight: 800;
         }
 
@@ -232,21 +192,17 @@
         input,
         select {
             width: 100%;
-
             padding: 16px;
 
             color: white;
-
             background: #020817;
 
             border: 1px solid rgba(255, 255, 255, 0.16);
-
             border-radius: 9px;
 
             outline: none;
 
             font-family: "Montserrat", sans-serif;
-
             font-size: 15px;
 
             transition: 0.2s;
@@ -266,23 +222,27 @@
 
         .two-columns {
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 18px;
         }
 
-        /* =========================
-           AVISO
-        ========================= */
+        /* CAMPO OUTROS */
+
+        #outroCursoContainer {
+            display: none;
+        }
+
+        .other-help {
+            margin-top: 7px;
+            color: var(--cinza);
+            font-size: 12px;
+        }
 
         .warning {
             margin: 25px 0;
-
             padding: 18px;
 
             border-left: 4px solid var(--dourado);
-
             background: rgba(247, 185, 0, 0.07);
 
             border-radius: 7px;
@@ -290,117 +250,90 @@
 
         .warning strong {
             display: block;
-
             margin-bottom: 6px;
-
             color: var(--dourado);
         }
 
         .warning p {
             color: var(--cinza);
-
             font-size: 13px;
-
             line-height: 1.6;
         }
 
-        /* =========================
-           CHECKBOX
-        ========================= */
-
         .checkbox {
             display: flex;
-
             align-items: flex-start;
-
             gap: 12px;
-
             margin: 25px 0;
         }
 
         .checkbox input {
             width: 19px;
             height: 19px;
-
             margin-top: 2px;
 
             accent-color: var(--dourado);
-
             cursor: pointer;
         }
 
         .checkbox label {
             margin: 0;
-
             color: var(--cinza);
 
             font-size: 13px;
-
             line-height: 1.6;
 
             cursor: pointer;
         }
 
-        /* =========================
-           BOTÃO
-        ========================= */
-
         button {
             width: 100%;
-
             padding: 18px;
 
             border: none;
-
             border-radius: 9px;
 
             background: var(--dourado);
-
             color: #071020;
 
             font-family: "Montserrat", sans-serif;
-
             font-size: 16px;
-
             font-weight: 900;
 
             text-transform: uppercase;
 
             cursor: pointer;
-
             transition: 0.25s;
         }
 
         button:hover {
             background: var(--dourado-claro);
-
             transform: translateY(-3px);
 
             box-shadow:
                 0 12px 30px rgba(247, 185, 0, 0.2);
         }
 
+        button:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+        }
+
         .back-home {
             display: block;
-
             width: fit-content;
 
             margin: 25px auto 0;
 
             color: var(--cinza);
-
             text-decoration: none;
-
             font-size: 14px;
         }
 
         .back-home:hover {
             color: var(--dourado);
         }
-
-        /* =========================
-           RESPONSIVO
-        ========================= */
 
         @media (max-width: 650px) {
 
@@ -450,8 +383,6 @@
 
 <body>
 
-    <!-- CABEÇALHO -->
-
     <header>
 
         <div class="navbar">
@@ -486,14 +417,9 @@
     </header>
 
 
-    <!-- CONTEÚDO -->
-
     <main>
 
         <div class="container">
-
-
-            <!-- TÍTULO -->
 
             <div class="title">
 
@@ -514,14 +440,12 @@
 
                     Monte o grupo oficial do seu curso e
                     prepare-se para a Batalha dos Cursos
-                    no dia 19 de setembro.
+                    no dia <strong>25 de setembro</strong>.
 
                 </p>
 
             </div>
 
-
-            <!-- FORMULÁRIO -->
 
             <div class="form-card">
 
@@ -553,31 +477,61 @@
                                 Selecione seu curso
                             </option>
 
-                            <option>
+                            <option value="Administração">
                                 Administração
                             </option>
 
-                            <option>
+                            <option value="Ciências Contábeis">
                                 Ciências Contábeis
                             </option>
 
-                            <option>
+                            <option value="Direito">
                                 Direito
                             </option>
 
-                            <option>
+                            <option value="Engenharia">
                                 Engenharia
                             </option>
 
-                            <option>
+                            <option value="Sistemas de Informação">
                                 Sistemas de Informação
                             </option>
 
-                            <option>
-                                Outro
+                            <option value="Outros">
+                                Outros
                             </option>
 
                         </select>
+
+                    </div>
+
+
+                    <!-- ESPECIFICAR OUTRO CURSO -->
+
+                    <div
+                        class="form-group"
+                        id="outroCursoContainer"
+                    >
+
+                        <label for="outroCurso">
+
+                            Especifique seu curso
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="outroCurso"
+                            placeholder="Ex.: Arquitetura e Urbanismo"
+                        >
+
+                        <div class="other-help">
+                            Digite o nome completo do seu curso.
+                        </div>
 
                     </div>
 
@@ -753,63 +707,153 @@
 
     <script>
 
-        const formulario = document.getElementById("formInscricao");
+        const formulario =
+            document.getElementById("formInscricao");
 
-const URL_PLANILHA =
-    "https://script.google.com/macros/s/AKfycbwDEKILpvPOt59RbyklKGf6aLuanjI4e5AYfQ0B6B3wJpdvxhCax3B70zULGg40cjOe/exec";
+        const selectCurso =
+            document.getElementById("curso");
 
-formulario.addEventListener("submit", async function(event) {
+        const outroCursoContainer =
+            document.getElementById("outroCursoContainer");
 
-    event.preventDefault();
+        const outroCurso =
+            document.getElementById("outroCurso");
 
-    const botao = formulario.querySelector("button");
 
-    botao.disabled = true;
-    botao.textContent = "ENVIANDO...";
+        /* =========================
+           MOSTRAR CAMPO "OUTROS"
+        ========================= */
 
-    const dados = {
-        curso: document.getElementById("curso").value,
-        grupo: document.getElementById("grupo").value,
-        representante: document.getElementById("representante").value,
-        whatsapp: document.getElementById("whatsapp").value,
-        participantes: document.getElementById("participantes").value
-    };
+        selectCurso.addEventListener("change", function() {
 
-    try {
+            if (selectCurso.value === "Outros") {
 
-        await fetch(URL_PLANILHA, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(dados)
+                outroCursoContainer.style.display = "block";
+
+                outroCurso.required = true;
+
+                outroCurso.focus();
+
+            } else {
+
+                outroCursoContainer.style.display = "none";
+
+                outroCurso.required = false;
+
+                outroCurso.value = "";
+
+            }
+
         });
 
-        alert(
-            "🎉 INSCRIÇÃO ENVIADA!\n\n" +
-            "O grupo foi enviado para a organização da Batalha dos Cursos."
+
+        /* =========================
+           ENVIO
+        ========================= */
+
+        const URL_PLANILHA =
+            "https://script.google.com/macros/s/AKfycbwDEKILpvPOt59RbyklKGf6aLuanjI4e5AYfQ0B6B3wJpdvxhCax3B70zULGg40cjOe/exec";
+
+
+        formulario.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+                const botao =
+                    formulario.querySelector("button");
+
+                botao.disabled = true;
+                botao.textContent = "ENVIANDO...";
+
+
+                /* =========================
+                   DEFINIR CURSO
+                ========================= */
+
+                let cursoSelecionado =
+                    selectCurso.value;
+
+                if (cursoSelecionado === "Outros") {
+
+                    cursoSelecionado =
+                        outroCurso.value.trim();
+
+                }
+
+
+                const dados = {
+
+                    curso: cursoSelecionado,
+
+                    grupo:
+                        document.getElementById("grupo").value,
+
+                    representante:
+                        document.getElementById("representante").value,
+
+                    whatsapp:
+                        document.getElementById("whatsapp").value,
+
+                    participantes:
+                        document.getElementById("participantes").value
+
+                };
+
+
+                try {
+
+                    await fetch(
+                        URL_PLANILHA,
+                        {
+                            method: "POST",
+                            mode: "no-cors",
+
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify(dados)
+                        }
+                    );
+
+
+                    alert(
+                        "🎉 INSCRIÇÃO ENVIADA!\n\n" +
+                        "O grupo foi enviado para a organização da Batalha dos Cursos."
+                    );
+
+
+                    formulario.reset();
+
+                    outroCursoContainer.style.display = "none";
+
+                    outroCurso.required = false;
+
+
+                } catch (erro) {
+
+                    console.error(erro);
+
+                    alert(
+                        "❌ Não foi possível enviar a inscrição.\n\n" +
+                        "Tente novamente em alguns instantes."
+                    );
+
+                } finally {
+
+                    botao.disabled = false;
+
+                    botao.textContent =
+                        "🏆 Enviar inscrição";
+
+                }
+
+            }
         );
-
-        formulario.reset();
-
-    } catch (erro) {
-
-        console.error(erro);
-
-        alert(
-            "❌ Não foi possível enviar a inscrição.\n\n" +
-            "Tente novamente em alguns instantes."
-        );
-
-    } finally {
-
-        botao.disabled = false;
-        botao.textContent = "🏆 Enviar inscrição";
-
-    }
-
-});
 
     </script>
 
