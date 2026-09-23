@@ -19,7 +19,7 @@
 
     <link
         rel="preconnect"
-        href="https://fonts.googleapis.com"
+        href="https://fonts.gstatic.com"
         crossorigin
     >
 
@@ -359,11 +359,13 @@
 
             </div>
 
+
             <div class="card">
 
                 <div class="card-title">
                     🏆 Atualizar pontuação
                 </div>
+
 
                 <div class="form-group">
 
@@ -381,6 +383,7 @@
 
                 </div>
 
+
                 <div class="current-points">
 
                     <span>
@@ -392,6 +395,7 @@
                     </strong>
 
                 </div>
+
 
                 <div class="form-group">
 
@@ -408,6 +412,7 @@
 
                 </div>
 
+
                 <button
                     type="button"
                     id="botaoAtualizar"
@@ -415,12 +420,14 @@
                     🏆 Atualizar pontos
                 </button>
 
+
                 <div
                     class="status"
                     id="status"
                 ></div>
 
             </div>
+
 
             <a
                 href="index.html"
@@ -433,11 +440,20 @@
 
     </main>
 
+
     <script>
+
+        // ==========================================
+        // URL DO GOOGLE APPS SCRIPT
+        // ==========================================
 
         const URL_PLANILHA =
             "https://script.google.com/macros/s/AKfycbwDEKILpvPOt59RbyklKGf6aLuanjI4e5AYfQ0B6B3wJpdvxhCax3B70zULGg40cjOe/exec";
 
+
+        // ==========================================
+        // ELEMENTOS
+        // ==========================================
 
         const selectCurso =
             document.getElementById("curso");
@@ -458,9 +474,9 @@
         let ranking = [];
 
 
-        /* =========================
-           PROTEÇÃO
-        ========================= */
+        // ==========================================
+        // PROTEÇÃO
+        // ==========================================
 
         const senha =
             prompt(
@@ -471,6 +487,7 @@
         if (senha === null) {
 
             document.body.innerHTML = `
+
                 <div style="
                     min-height:100vh;
                     display:flex;
@@ -482,55 +499,126 @@
                     text-align:center;
                     padding:30px;
                 ">
+
                     <div>
+
                         <h1 style="color:#f7b900;">
                             Acesso cancelado
                         </h1>
 
-                        <p style="margin-top:15px;color:#b9bec8;">
+                        <p style="
+                            margin-top:15px;
+                            color:#b9bec8;
+                        ">
                             Esta área é exclusiva para a organização.
                         </p>
+
                     </div>
+
                 </div>
+
             `;
 
-            throw new Error("Acesso cancelado.");
+            throw new Error(
+                "Acesso cancelado."
+            );
 
         }
 
 
-        /* =========================
-           STATUS
-        ========================= */
+        // ==========================================
+        // STATUS
+        // ==========================================
 
-        function mostrarStatus(mensagem) {
+        function mostrarStatus(
+            mensagem,
+            sucesso = false
+        ) {
 
-            status.textContent = mensagem;
+            status.textContent =
+                mensagem;
 
-            status.style.display = "block";
+            status.style.display =
+                "block";
+
+
+            if (sucesso) {
+
+                status.style.background =
+                    "rgba(34,197,94,0.10)";
+
+                status.style.border =
+                    "1px solid rgba(34,197,94,0.35)";
+
+            } else {
+
+                status.style.background =
+                    "rgba(239,68,68,0.10)";
+
+                status.style.border =
+                    "1px solid rgba(239,68,68,0.35)";
+
+            }
 
         }
 
 
-        /* =========================
-           CARREGAR CURSOS
-        ========================= */
+        // ==========================================
+        // BUSCAR RANKING
+        // ==========================================
+
+        async function buscarRanking() {
+
+            const resposta =
+                await fetch(
+                    URL_PLANILHA +
+                    "?t=" +
+                    Date.now()
+                );
+
+
+            if (!resposta.ok) {
+
+                throw new Error(
+                    "Não foi possível consultar o ranking."
+                );
+
+            }
+
+
+            const dados =
+                await resposta.json();
+
+
+            if (!Array.isArray(dados)) {
+
+                throw new Error(
+                    "Resposta inválida do servidor."
+                );
+
+            }
+
+
+            return dados;
+
+        }
+
+
+        // ==========================================
+        // CARREGAR CURSOS
+        // ==========================================
 
         async function carregarCursos() {
 
             try {
 
-                const resposta =
-                    await fetch(
-                        URL_PLANILHA +
-                        "?t=" +
-                        Date.now()
-                    );
-
                 ranking =
-                    await resposta.json();
+                    await buscarRanking();
 
-                selectCurso.innerHTML = "";
+
+                selectCurso.innerHTML =
+                    "";
+
 
                 if (
                     !Array.isArray(ranking) ||
@@ -538,9 +626,11 @@
                 ) {
 
                     selectCurso.innerHTML = `
+
                         <option value="">
                             Nenhum curso inscrito
                         </option>
+
                     `;
 
                     return;
@@ -548,20 +638,29 @@
                 }
 
 
-                ranking.forEach(function(item) {
+                ranking.forEach(
+                    function(item) {
 
-                    const option =
-                        document.createElement("option");
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
 
-                    option.value =
-                        item.curso;
 
-                    option.textContent =
-                        item.curso;
+                        option.value =
+                            item.curso;
 
-                    selectCurso.appendChild(option);
 
-                });
+                        option.textContent =
+                            item.curso;
+
+
+                        selectCurso.appendChild(
+                            option
+                        );
+
+                    }
+                );
 
 
                 atualizarPontosAtuais();
@@ -571,41 +670,56 @@
 
                 console.error(erro);
 
+
                 selectCurso.innerHTML = `
+
                     <option value="">
                         Erro ao carregar cursos
                     </option>
+
                 `;
+
+
+                mostrarStatus(
+                    "❌ Não foi possível carregar os cursos."
+                );
 
             }
 
         }
 
 
-        /* =========================
-           MOSTRAR PONTOS ATUAIS
-        ========================= */
+        // ==========================================
+        // MOSTRAR PONTOS ATUAIS
+        // ==========================================
 
         function atualizarPontosAtuais() {
 
             const cursoSelecionado =
                 selectCurso.value;
 
+
             const curso =
-                ranking.find(function(item) {
+                ranking.find(
+                    function(item) {
 
-                    return item.curso === cursoSelecionado;
+                        return (
+                            item.curso ===
+                            cursoSelecionado
+                        );
 
-                });
+                    }
+                );
 
 
             if (curso) {
 
                 pontosAtuais.textContent =
-                    curso.pontos;
+                    Number(curso.pontos) || 0;
+
 
                 campoPontos.value =
-                    curso.pontos;
+                    Number(curso.pontos) || 0;
 
             } else {
 
@@ -620,9 +734,9 @@
         }
 
 
-        /* =========================
-           TROCAR CURSO
-        ========================= */
+        // ==========================================
+        // TROCAR CURSO
+        // ==========================================
 
         selectCurso.addEventListener(
             "change",
@@ -630,9 +744,105 @@
         );
 
 
-        /* =========================
-           ATUALIZAR PONTOS
-        ========================= */
+        // ==========================================
+        // CONFIRMAR ALTERAÇÃO
+        // ==========================================
+
+        async function confirmarAlteracao(
+            curso,
+            pontosEsperados
+        ) {
+
+            /*
+             * Como o POST usa no-cors, não conseguimos
+             * ler a resposta do Google diretamente.
+             *
+             * Então fazemos novas consultas ao ranking
+             * até verificar se o valor realmente mudou.
+             */
+
+            for (
+                let tentativa = 1;
+                tentativa <= 6;
+                tentativa++
+            ) {
+
+                await new Promise(
+                    function(resolve) {
+
+                        setTimeout(
+                            resolve,
+                            1000
+                        );
+
+                    }
+                );
+
+
+                try {
+
+                    const novoRanking =
+                        await buscarRanking();
+
+
+                    const cursoAtualizado =
+                        novoRanking.find(
+                            function(item) {
+
+                                return (
+                                    item.curso ===
+                                    curso
+                                );
+
+                            }
+                        );
+
+
+                    if (
+                        cursoAtualizado &&
+                        Number(
+                            cursoAtualizado.pontos
+                        ) === pontosEsperados
+                    ) {
+
+                        ranking =
+                            novoRanking;
+
+
+                        pontosAtuais.textContent =
+                            pontosEsperados;
+
+
+                        campoPontos.value =
+                            pontosEsperados;
+
+
+                        return true;
+
+                    }
+
+                } catch (erro) {
+
+                    console.error(
+                        "Tentativa " +
+                        tentativa +
+                        ":",
+                        erro
+                    );
+
+                }
+
+            }
+
+
+            return false;
+
+        }
+
+
+        // ==========================================
+        // ATUALIZAR PONTOS
+        // ==========================================
 
         botaoAtualizar.addEventListener(
             "click",
@@ -641,8 +851,11 @@
                 const curso =
                     selectCurso.value;
 
+
                 const pontos =
-                    Number(campoPontos.value);
+                    Number(
+                        campoPontos.value
+                    );
 
 
                 if (!curso) {
@@ -658,6 +871,7 @@
 
                 if (
                     campoPontos.value === "" ||
+                    !Number.isFinite(pontos) ||
                     pontos < 0
                 ) {
 
@@ -673,8 +887,14 @@
                 botaoAtualizar.disabled =
                     true;
 
+
                 botaoAtualizar.textContent =
                     "ATUALIZANDO...";
+
+
+                mostrarStatus(
+                    "⏳ Enviando pontuação..."
+                );
 
 
                 const dados = {
@@ -696,56 +916,103 @@
 
                 try {
 
+                    // ==================================
+                    // ENVIA PARA O GOOGLE
+                    // ==================================
+
                     await fetch(
                         URL_PLANILHA,
                         {
+
                             method: "POST",
 
                             mode: "no-cors",
 
                             headers: {
+
                                 "Content-Type":
                                     "text/plain;charset=utf-8"
+
                             },
 
                             body:
-                                JSON.stringify(dados)
+                                JSON.stringify(
+                                    dados
+                                )
+
                         }
                     );
 
 
-                    pontosAtuais.textContent =
-                        pontos;
-
-
                     mostrarStatus(
-                        "✅ Pontuação enviada para atualização!"
+                        "⏳ Confirmando alteração..."
                     );
 
 
-                    setTimeout(
-                        function() {
+                    // ==================================
+                    // CONFIRMA NA PLANILHA
+                    // ==================================
 
-                            status.style.display =
-                                "none";
+                    const confirmou =
+                        await confirmarAlteracao(
+                            curso,
+                            pontos
+                        );
 
-                        },
-                        3000
-                    );
+
+                    if (confirmou) {
+
+                        mostrarStatus(
+                            "✅ Pontuação atualizada com sucesso!",
+                            true
+                        );
+
+
+                        setTimeout(
+                            function() {
+
+                                status.style.display =
+                                    "none";
+
+                            },
+                            4000
+                        );
+
+
+                    } else {
+
+                        /*
+                         * Se chegou aqui, provavelmente:
+                         *
+                         * - senha incorreta;
+                         * - curso não encontrado;
+                         * - Web App não está usando
+                         *   a versão atualizada.
+                         */
+
+                        mostrarStatus(
+                            "❌ A pontuação não foi alterada. Verifique a senha e tente novamente."
+                        );
+
+                    }
 
 
                 } catch (erro) {
 
-                    console.error(erro);
+                    console.error(
+                        erro
+                    );
+
 
                     mostrarStatus(
-                        "❌ Erro ao atualizar a pontuação."
+                        "❌ Erro ao comunicar com o servidor."
                     );
 
                 } finally {
 
                     botaoAtualizar.disabled =
                         false;
+
 
                     botaoAtualizar.textContent =
                         "🏆 Atualizar pontos";
@@ -756,9 +1023,9 @@
         );
 
 
-        /* =========================
-           INICIAR
-        ========================= */
+        // ==========================================
+        // INICIAR
+        // ==========================================
 
         carregarCursos();
 
