@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Painel | Batalha dos Cursos</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --azul: #061329;
+            --azul-escuro: #020817;
+            --dourado: #f7b900;
+            --dourado-claro: #ffd43b;
+            --branco: #ffffff;
+            --cinza: #b9bec8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: "Montserrat", sans-serif;
+
+            color: var(--branco);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(247, 185, 0, 0.13),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #020817,
+                    #061329,
+                    #020817
+                );
+        }
+
+        .container {
+
+            width: 100%;
+            max-width: 700px;
+
+            margin: auto;
+
+            padding: 60px 20px;
+        }
+
+        .header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .header img {
+
+            width: 100px;
+            height: 100px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+
+            font-family: "Anton", sans-serif;
+
+            font-size: 55px;
+
+            line-height: 0.9;
+
+            text-transform: uppercase;
+        }
+
+        .header h1 span {
+
+            display: block;
+
+            color: var(--dourado);
+        }
+
+        .header p {
+
+            margin-top: 18px;
+
+            color: var(--cinza);
+
+            font-size: 14px;
+        }
+
+        .card {
+
+            padding: 35px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0c1b31,
+                    #071020
+                );
+
+            border: 1px solid rgba(247, 185, 0, 0.45);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        .card-title {
+
+            margin-bottom: 25px;
+
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: 30px;
+
+            color: var(--dourado);
+        }
+
+        .form-group {
+
+            margin-bottom: 22px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 9px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        select,
+        input {
+
+            width: 100%;
+
+            padding: 16px;
+
+            color: white;
+
+            background: #020817;
+
+            border: 1px solid rgba(255, 255, 255, 0.16);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 15px;
+        }
+
+        select:focus,
+        input:focus {
+
+            border-color: var(--dourado);
+
+            box-shadow:
+                0 0 0 3px rgba(247, 185, 0, 0.08);
+        }
+
+        .current-points {
+
+            padding: 18px;
+
+            margin-bottom: 22px;
+
+            background: rgba(247, 185, 0, 0.07);
+
+            border-left: 4px solid var(--dourado);
+
+            border-radius: 7px;
+        }
+
+        .current-points span {
+
+            color: var(--cinza);
+
+            font-size: 13px;
+        }
+
+        .current-points strong {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--dourado);
+
+            font-size: 28px;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 18px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--dourado);
+
+            color: #071020;
+
+            font-family: "Montserrat", sans-serif;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        button:hover {
+
+            background: var(--dourado-claro);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(247, 185, 0, 0.2);
+        }
+
+        button:disabled {
+
+            opacity: 0.7;
+
+            cursor: wait;
+
+            transform: none;
+        }
+
+        .status {
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            display: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 25px auto 0;
+
+            color: var(--cinza);
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .back:hover {
+
+            color: var(--dourado);
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+
+                padding: 40px 15px;
+            }
+
+            .card {
+
+                padding: 25px 18px;
+            }
+
+            .header h1 {
+
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main>
+
+        <div class="container">
+
+
+            <div class="header">
+
+                <img
+                    src="./logo-atletica.png"
+                    alt="Logo da Atlética FSA"
+                >
+
+                <h1>
+
+                    Painel
+
+                    <span>Organização</span>
+
+                </h1>
+
+                <p>
+
+                    Controle de pontuação da Batalha dos Cursos
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    🏆 Atualizar pontuação
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="curso">
+
+                        Curso
+
+                    </label>
+
+                    <select id="curso">
+
+                        <option value="">
+
+                            Carregando cursos...
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="current-points">
+
+                    <span>
+
+                        Pontuação atual
+
+                    </span>
+
+                    <strong id="pontosAtuais">
+
+                        0
+
+                    </strong>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pontos">
+
+                        Nova pontuação
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pontos"
+                        min="0"
+                        placeholder="Ex.: 100"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botaoAtualizar"
+                >
+
+                    🏆 Atualizar pontos
+
+                </button>
+
+
+                <div
+                    class="status"
+                    id="status"
+                ></div>
+
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="back"
+            >
+
+                ← Voltar para o site
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        const URL_PLANILHA =
+            "https://script.google.com/macros/s/AKfycbwDEKILpvPOt59RbyklKGf6aLuanjI4e5AYfQ0B6B3wJpdvxhCax3B70zULGg40cjOe/exec";
+
+
+        const selectCurso =
+            document.getElementById("curso");
+
+        const pontosAtuais =
+            document.getElementById("pontosAtuais");
+
+        const campoPontos =
+            document.getElementById("pontos");
+
+        const botaoAtualizar =
+            document.getElementById("botaoAtualizar");
+
+        const status =
+            document.getElementById("status");
+
+
+        let ranking = [];
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        function mostrarStatus(mensagem) {
+
+            status.textContent = mensagem;
+
+            status.style.display = "block";
+
+        }
+
+
+        /* =========================
+           CARREGAR CURSOS
+        ========================= */
+
+        async function carregarCursos() {
+
+            try {
+
+                const resposta =
+                    await fetch(
+                        URL_PLANILHA +
+                        "?t=" +
+                        Date.now()
+                    );
+
+                ranking =
+                    await resposta.json();
+
+
+                selectCurso.innerHTML = "";
+
+
+                if (
+                    !Array.isArray(ranking) ||
+                    ranking.length === 0
+                ) {
+
+                    selectCurso.innerHTML = `
+                        <option value="">
+                            Nenhum curso inscrito
+                        </option>
+                    `;
+
+                    return;
+
+                }
+
+
+                ranking.forEach(function(item) {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value = item.curso;
+
+                    option.textContent =
+                        item.curso;
+
+                    selectCurso.appendChild(option);
+
+                });
+
+
+                atualizarPontosAtuais();
+
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                selectCurso.innerHTML = `
+                    <option value="">
+                        Erro ao carregar cursos
+                    </option>
+                `;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOSTRAR PONTOS ATUAIS
+        ========================= */
+
+        function atualizarPontosAtuais() {
+
+            const cursoSelecionado =
+                selectCurso.value;
+
+
+            const curso =
+                ranking.find(function(item) {
+
+                    return item.curso === cursoSelecionado;
+
+                });
+
+
+            if (curso) {
+
+                pontosAtuais.textContent =
+                    curso.pontos;
+
+                campoPontos.value =
+                    curso.pontos;
+
+            } else {
+
+                pontosAtuais.textContent = "0";
+
+                campoPontos.value = "";
+
+            }
+
+        }
+
+
+        /* =========================
+           TROCAR CURSO
+        ========================= */
+
+        selectCurso.addEventListener(
+            "change",
+            atualizarPontosAtuais
+        );
+
+
+        /* =========================
+           ATUALIZAR PONTOS
+        ========================= */
+
+        botaoAtualizar.addEventListener(
+            "click",
+            async function() {
+
+                const curso =
+                    selectCurso.value;
+
+                const pontos =
+                    Number(campoPontos.value);
+
+
+                if (!curso) {
+
+                    mostrarStatus(
+                        "❌ Selecione um curso."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    campoPontos.value === "" ||
+                    pontos < 0
+                ) {
+
+                    mostrarStatus(
+                        "❌ Digite uma pontuação válida."
+                    );
+
+                    return;
+
+                }
+
+
+                botaoAtualizar.disabled = true;
+
+                botaoAtualizar.textContent =
+                    "ATUALIZANDO...";
+
+
+                const dados = {
+
+                    acao: "atualizar_pontos",
+
+                    curso: curso,
+
+                    pontos: pontos
+
+                };
+
+
+                try {
+
+                    await fetch(
+                        URL_PLANILHA,
+                        {
+                            method: "POST",
+
+                            mode: "no-cors",
+
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify(dados)
+                        }
+                    );
+
+
+                    pontosAtuais.textContent =
+                        pontos;
+
+
+                    mostrarStatus(
+                        "✅ Pontuação atualizada!"
+                    );
+
+
+                    setTimeout(
+                        function() {
+
+                            status.style.display =
+                                "none";
+
+                        },
+                        3000
+                    );
+
+
+                } catch (erro) {
+
+                    console.error(erro);
+
+                    mostrarStatus(
+                        "❌ Erro ao atualizar a pontuação."
+                    );
+
+                } finally {
+
+                    botaoAtualizar.disabled = false;
+
+                    botaoAtualizar.textContent =
+                        "🏆 Atualizar pontos";
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           INICIAR
+        ========================= */
+
+        carregarCursos();
+
+
+    </script>
+
+</body>
+
+</html>
