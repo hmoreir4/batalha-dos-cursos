@@ -40,28 +40,20 @@
             overflow-x: hidden;
         }
 
-        /* =========================
-           MENU
-        ========================= */
-
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-
             background: rgba(2, 8, 23, 0.95);
             backdrop-filter: blur(12px);
-
             border-bottom: 1px solid rgba(247, 185, 0, 0.35);
         }
 
         .navbar {
             max-width: 1250px;
             min-height: 85px;
-
             margin: auto;
             padding: 10px 25px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -72,7 +64,6 @@
             display: flex;
             align-items: center;
             gap: 14px;
-
             color: white;
             text-decoration: none;
         }
@@ -109,11 +100,9 @@
         nav a {
             color: white;
             text-decoration: none;
-
             font-family: "Bebas Neue", sans-serif;
             font-size: 20px;
             letter-spacing: 1px;
-
             transition: 0.2s;
         }
 
@@ -121,13 +110,8 @@
             color: var(--dourado);
         }
 
-        /* =========================
-           HERO
-        ========================= */
-
         .hero {
             min-height: 690px;
-
             position: relative;
             overflow: hidden;
 
@@ -148,7 +132,6 @@
         .hero-container {
             max-width: 1250px;
             min-height: 690px;
-
             margin: auto;
             padding: 60px 25px;
 
@@ -164,10 +147,8 @@
 
         .hero h1 {
             font-family: "Anton", sans-serif;
-
             font-size: clamp(70px, 9vw, 135px);
             line-height: 0.82;
-
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -179,11 +160,9 @@
 
         .slogan {
             margin-top: 30px;
-
             font-family: "Bebas Neue", sans-serif;
             font-size: 31px;
             letter-spacing: 2px;
-
             color: #f5f5f5;
         }
 
@@ -263,7 +242,6 @@
 
         .hero-logo img {
             width: min(470px, 90%);
-
             object-fit: contain;
 
             filter: drop-shadow(
@@ -285,10 +263,6 @@
 
         }
 
-        /* =========================
-           SEÇÕES
-        ========================= */
-
         section {
             scroll-margin-top: 90px;
         }
@@ -301,27 +275,18 @@
 
         .section-title {
             font-family: "Anton", sans-serif;
-
             color: var(--dourado);
-
             font-size: 50px;
             letter-spacing: 1px;
-
             margin-bottom: 15px;
         }
 
         .section-text {
             max-width: 700px;
-
             color: var(--cinza);
-
             line-height: 1.7;
             margin-bottom: 45px;
         }
-
-        /* =========================
-           COMO FUNCIONA
-        ========================= */
 
         .how {
             background:
@@ -343,7 +308,6 @@
 
         .step {
             padding: 30px 20px;
-
             text-align: center;
 
             background: rgba(2, 8, 23, 0.75);
@@ -377,28 +341,21 @@
 
         .number {
             color: var(--dourado);
-
             font-size: 13px;
             font-weight: 900;
         }
 
         .step h3 {
             margin: 8px 0;
-
             font-family: "Bebas Neue", sans-serif;
             font-size: 27px;
         }
 
         .step p {
             color: var(--cinza);
-
             font-size: 14px;
             line-height: 1.6;
         }
-
-        /* =========================
-           RANKING
-        ========================= */
 
         .ranking {
             background: var(--azul-escuro);
@@ -422,7 +379,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-
             margin-bottom: 30px;
         }
 
@@ -457,7 +413,6 @@
 
         .position {
             font-family: "Anton", sans-serif;
-
             font-size: 55px;
             color: var(--dourado);
         }
@@ -469,7 +424,6 @@
 
         .points {
             margin-top: 9px;
-
             color: var(--dourado);
             font-weight: 900;
         }
@@ -494,7 +448,6 @@
 
         .pos {
             color: var(--dourado);
-
             font-family: "Anton", sans-serif;
             font-size: 25px;
         }
@@ -508,9 +461,12 @@
             font-weight: 800;
         }
 
-        /* =========================
-           CTA INSCRIÇÃO
-        ========================= */
+        .ranking-status {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--cinza);
+            font-size: 13px;
+        }
 
         .cta {
             max-width: 1200px;
@@ -543,16 +499,10 @@
 
         .cta p {
             max-width: 650px;
-
             margin: 15px auto 30px;
-
             color: var(--cinza);
             line-height: 1.6;
         }
-
-        /* =========================
-           REGRAS
-        ========================= */
 
         .rules {
             background: #061329;
@@ -572,21 +522,14 @@
             line-height: 1.8;
         }
 
-        /* =========================
-           RODAPÉ
-        ========================= */
-
         footer {
             padding: 45px 25px;
-
             background: #020817;
-
             border-top: 1px solid rgba(247,185,0,0.35);
         }
 
         .footer-inner {
             max-width: 1200px;
-
             margin: auto;
 
             display: flex;
@@ -609,14 +552,9 @@
 
         .footer-brand p {
             color: var(--cinza);
-
             font-size: 13px;
             line-height: 1.6;
         }
-
-        /* =========================
-           MOBILE
-        ========================= */
 
         @media (max-width: 900px) {
 
@@ -752,490 +690,590 @@
 
 <body>
 
-    <!-- MENU -->
+<header>
 
-    <header>
+    <div class="navbar">
 
-        <div class="navbar">
+        <a href="#inicio" class="brand">
 
-            <a href="#inicio" class="brand">
+            <img
+                src="./logo-atletica.png"
+                alt="Logo da Atlética FSA"
+            >
 
-                <img
-                    src="./logo-atletica.png"
-                    alt="Logo da Atlética FSA"
-                >
+            <div class="brand-text">
 
-                <div class="brand-text">
-
-                    <div class="brand-title">
-                        BATALHA
-                    </div>
-
-                    <div class="brand-subtitle">
-                        DOS CURSOS
-                    </div>
-
+                <div class="brand-title">
+                    BATALHA
                 </div>
 
-            </a>
+                <div class="brand-subtitle">
+                    DOS CURSOS
+                </div>
 
-            <nav>
+            </div>
 
-                <a href="#inicio">INÍCIO</a>
-                <a href="#ranking">RANKING</a>
-                <a href="#inscricao">INSCRIÇÃO</a>
-                <a href="#regras">REGRAS</a>
-                <a href="#informacoes">INFORMAÇÕES</a>
+        </a>
 
-            </nav>
+        <nav>
+
+            <a href="#inicio">INÍCIO</a>
+            <a href="#ranking">RANKING</a>
+            <a href="#inscricao">INSCRIÇÃO</a>
+            <a href="#regras">REGRAS</a>
+            <a href="#informacoes">INFORMAÇÕES</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <h1>
+                Batalha
+                <span>dos Cursos</span>
+            </h1>
+
+            <p class="slogan">
+                Último desafio, a última batalha
+            </p>
+
+            <div class="date">
+
+                <span>📅</span>
+
+                25 DE SETEMBRO
+
+            </div>
+
+            <div class="buttons">
+
+                <a
+                    href="inscricao.html"
+                    class="btn btn-primary"
+                >
+                    👥 Inscrever meu curso
+                </a>
+
+                <a
+                    href="#ranking"
+                    class="btn btn-secondary"
+                >
+                    🏆 Ver ranking
+                </a>
+
+            </div>
 
         </div>
 
-    </header>
+
+        <div class="hero-logo">
+
+            <img
+                src="./logo-atletica.png"
+                alt="Atlética FSA"
+            >
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- HERO -->
+<section class="how" id="informacoes">
 
-    <section class="hero" id="inicio">
+    <div class="section">
 
-        <div class="hero-container">
+        <h2 class="section-title">
+            Como funciona?
+        </h2>
 
-            <div class="hero-content">
+        <p class="section-text">
 
-                <h1>
-                    Batalha
-                    <span>dos Cursos</span>
-                </h1>
+            A Batalha dos Cursos é a competição oficial
+            da festa. Cada curso forma seu grupo,
+            participa dos desafios, soma pontos e disputa
+            o título de campeão.
 
-                <p class="slogan">
-                    Último desafio, a última batalha
+        </p>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="icon">👥</div>
+
+                <div class="number">01</div>
+
+                <h3>
+                    Inscreva seu curso
+                </h3>
+
+                <p>
+                    Monte seu grupo e faça a inscrição
+                    oficial para representar seu curso.
                 </p>
 
-                <div class="date">
+            </div>
 
-                    <span>📅</span>
 
-                    19 DE SETEMBRO
+            <div class="step">
 
-                </div>
+                <div class="icon">⚔️</div>
 
-                <div class="buttons">
+                <div class="number">02</div>
 
-                    <a
-                        href="inscricao.html"
-                        class="btn btn-primary"
-                    >
-                        👥 Inscrever meu curso
-                    </a>
+                <h3>
+                    Enfrente os desafios
+                </h3>
 
-                    <a
-                        href="#ranking"
-                        class="btn btn-secondary"
-                    >
-                        🏆 Ver ranking
-                    </a>
-
-                </div>
+                <p>
+                    Participe dos desafios preparados
+                    especialmente para a festa.
+                </p>
 
             </div>
 
 
-            <div class="hero-logo">
+            <div class="step">
 
-                <img
-                    src="./logo-atletica.png"
-                    alt="Atlética FSA"
-                >
+                <div class="icon">🎯</div>
+
+                <div class="number">03</div>
+
+                <h3>
+                    Some pontos
+                </h3>
+
+                <p>
+                    Cada desafio vale pontos.
+                    Quanto melhor seu curso,
+                    maior sua posição.
+                </p>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="step">
 
+                <div class="icon">🏆</div>
 
-    <!-- COMO FUNCIONA -->
+                <div class="number">04</div>
 
-    <section class="how" id="informacoes">
+                <h3>
+                    Conquiste o troféu
+                </h3>
 
-        <div class="section">
-
-            <h2 class="section-title">
-                Como funciona?
-            </h2>
-
-            <p class="section-text">
-
-                A Batalha dos Cursos é a competição oficial
-                da festa. Cada curso forma seu grupo,
-                participa dos desafios, soma pontos e disputa
-                o título de campeão.
-
-            </p>
-
-
-            <div class="steps">
-
-                <div class="step">
-
-                    <div class="icon">
-                        👥
-                    </div>
-
-                    <div class="number">
-                        01
-                    </div>
-
-                    <h3>
-                        Inscreva seu curso
-                    </h3>
-
-                    <p>
-                        Monte seu grupo e faça a inscrição
-                        oficial para representar seu curso.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="icon">
-                        ⚔️
-                    </div>
-
-                    <div class="number">
-                        02
-                    </div>
-
-                    <h3>
-                        Enfrente os desafios
-                    </h3>
-
-                    <p>
-                        Participe dos desafios preparados
-                        especialmente para a festa.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="icon">
-                        🎯
-                    </div>
-
-                    <div class="number">
-                        03
-                    </div>
-
-                    <h3>
-                        Some pontos
-                    </h3>
-
-                    <p>
-                        Cada desafio vale pontos.
-                        Quanto melhor seu curso,
-                        maior sua posição.
-                    </p>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="icon">
-                        🏆
-                    </div>
-
-                    <div class="number">
-                        04
-                    </div>
-
-                    <h3>
-                        Conquiste o troféu
-                    </h3>
-
-                    <p>
-                        O curso com mais pontos termina
-                        a noite como campeão da Batalha.
-                    </p>
-
-                </div>
+                <p>
+                    O curso com mais pontos termina
+                    a noite como campeão da Batalha.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- RANKING -->
+<section class="ranking" id="ranking">
 
-    <section class="ranking" id="ranking">
+    <div class="section">
 
-        <div class="section">
+        <h2 class="section-title">
+            🏆 Ranking geral
+        </h2>
 
-            <h2 class="section-title">
-                🏆 Ranking geral
-            </h2>
+        <p class="section-text">
 
-            <p class="section-text">
+            O ranking é atualizado automaticamente
+            durante a competição.
 
-                O ranking será atualizado durante a
-                competição. Todos os cursos começam
-                com zero pontos.
-
-            </p>
+        </p>
 
 
-            <div class="ranking-box">
+        <div class="ranking-box">
 
-                <div class="podium">
+            <div class="podium" id="podium">
 
-                    <div class="podium-card">
+                <div class="podium-card">
 
-                        <div class="medal">
-                            👑
-                        </div>
+                    <div class="medal">👑</div>
 
-                        <div class="position">
-                            1º
-                        </div>
+                    <div class="position">1º</div>
 
-                        <div class="course">
-                            —
-                        </div>
-
-                        <div class="points">
-                            0 PONTOS
-                        </div>
-
+                    <div class="course" id="curso1">
+                        —
                     </div>
 
-
-                    <div class="podium-card">
-
-                        <div class="medal">
-                            🥈
-                        </div>
-
-                        <div class="position">
-                            2º
-                        </div>
-
-                        <div class="course">
-                            —
-                        </div>
-
-                        <div class="points">
-                            0 PONTOS
-                        </div>
-
-                    </div>
-
-
-                    <div class="podium-card">
-
-                        <div class="medal">
-                            🥉
-                        </div>
-
-                        <div class="position">
-                            3º
-                        </div>
-
-                        <div class="course">
-                            —
-                        </div>
-
-                        <div class="points">
-                            0 PONTOS
-                        </div>
-
+                    <div class="points" id="pontos1">
+                        0 PONTOS
                     </div>
 
                 </div>
 
 
-                <div class="ranking-list">
+                <div class="podium-card">
 
-                    <div class="ranking-row">
+                    <div class="medal">🥈</div>
 
-                        <div class="pos">
-                            4º
-                        </div>
+                    <div class="position">2º</div>
 
-                        <div class="name">
-                            —
-                        </div>
-
-                        <div class="score">
-                            0 PONTOS
-                        </div>
-
+                    <div class="course" id="curso2">
+                        —
                     </div>
 
-
-                    <div class="ranking-row">
-
-                        <div class="pos">
-                            5º
-                        </div>
-
-                        <div class="name">
-                            —
-                        </div>
-
-                        <div class="score">
-                            0 PONTOS
-                        </div>
-
+                    <div class="points" id="pontos2">
+                        0 PONTOS
                     </div>
 
+                </div>
 
-                    <div class="ranking-row">
 
-                        <div class="pos">
-                            6º
-                        </div>
+                <div class="podium-card">
 
-                        <div class="name">
-                            —
-                        </div>
+                    <div class="medal">🥉</div>
 
-                        <div class="score">
-                            0 PONTOS
-                        </div>
+                    <div class="position">3º</div>
 
+                    <div class="course" id="curso3">
+                        —
+                    </div>
+
+                    <div class="points" id="pontos3">
+                        0 PONTOS
                     </div>
 
                 </div>
 
             </div>
 
+
+            <div class="ranking-list" id="rankingList">
+
+                <div class="ranking-row">
+
+                    <div class="pos">
+                        —
+                    </div>
+
+                    <div class="name">
+                        Carregando ranking...
+                    </div>
+
+                    <div class="score">
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="ranking-status" id="rankingStatus">
+                Atualizando ranking...
+            </div>
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- INSCRIÇÃO -->
+<section id="inscricao">
 
-    <section id="inscricao">
+    <div class="cta">
 
-        <div class="cta">
+        <h2>
+            REPRESENTE
+            <span>SEU CURSO!</span>
+        </h2>
 
-            <h2>
-                REPRESENTE
-                <span>SEU CURSO!</span>
-            </h2>
+        <p>
+
+            Reúna sua galera, monte o grupo do seu
+            curso e prepare-se para disputar a
+            Batalha dos Cursos.
+
+        </p>
+
+        <a
+            href="inscricao.html"
+            class="btn btn-primary"
+        >
+            📝 Inscrever meu curso
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="rules" id="regras">
+
+    <div class="section">
+
+        <h2 class="section-title">
+            📜 Regras
+        </h2>
+
+        <div class="rule-box">
 
             <p>
 
-                Reúna sua galera, monte o grupo do seu
-                curso e prepare-se para disputar a
-                Batalha dos Cursos.
+                As regras oficiais da Batalha dos Cursos
+                serão divulgadas pela organização antes
+                do evento.
 
             </p>
 
-            <a
-                href="inscricao.html"
-                class="btn btn-primary"
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="informacoes-detalhes">
+
+    <div class="section">
+
+        <h2 class="section-title">
+            📅 Informações
+        </h2>
+
+        <p class="section-text">
+
+            <strong>Data:</strong> 25 de setembro
+
+            <br><br>
+
+            Mais informações sobre horário, local,
+            inscrições e funcionamento serão divulgadas
+            pela organização.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+
+            <img
+                src="./logo-atletica.png"
+                alt="Atlética FSA"
             >
-                📝 Inscrever meu curso
-            </a>
 
-        </div>
+            <p>
 
-    </section>
+                ASSOCIAÇÃO ATLÉTICA ACADÊMICA
+                <br>
 
-
-    <!-- REGRAS -->
-
-    <section class="rules" id="regras">
-
-        <div class="section">
-
-            <h2 class="section-title">
-                📜 Regras
-            </h2>
-
-            <div class="rule-box">
-
-                <p>
-
-                    As regras oficiais da Batalha dos Cursos
-                    serão divulgadas pela organização antes
-                    do evento.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- INFORMAÇÕES -->
-
-    <section id="informacoes">
-
-        <div class="section">
-
-            <h2 class="section-title">
-                📅 Informações
-            </h2>
-
-            <p class="section-text">
-
-                <strong>Data:</strong> 19 de setembro
+                FUNDAÇÃO SANTO ANDRÉ
 
                 <br><br>
 
-                Mais informações sobre horário, local,
-                inscrições e funcionamento serão divulgadas
-                pela organização.
+                Batalha dos Cursos • 25 de setembro
 
             </p>
 
         </div>
 
-    </section>
+    </div>
+
+</footer>
 
 
-    <!-- RODAPÉ -->
+<script>
 
-    <footer>
+    // ==========================================
+    // URL DO GOOGLE APPS SCRIPT
+    // ==========================================
 
-        <div class="footer-inner">
+    const URL_RANKING =
+        "https://script.google.com/macros/s/AKfycbwDEKILpvPOt59RbyklKGf6aLuanjI4e5AYfQ0B6B3wJpdvxhCax3B70zULGg40cjOe/exec";
 
-            <div class="footer-brand">
 
-                <img
-                    src="./logo-atletica.png"
-                    alt="Atlética FSA"
-                >
+    // ==========================================
+    // ATUALIZAR RANKING
+    // ==========================================
 
-                <p>
+    async function atualizarRanking() {
 
-                    ASSOCIAÇÃO ATLÉTICA ACADÊMICA
-                    <br>
+        const status =
+            document.getElementById("rankingStatus");
 
-                    FUNDAÇÃO SANTO ANDRÉ
+        try {
 
-                    <br><br>
+            const resposta =
+                await fetch(URL_RANKING + "?t=" + Date.now());
 
-                    Batalha dos Cursos • 19 de setembro
+            if (!resposta.ok) {
+                throw new Error("Erro ao consultar ranking.");
+            }
 
-                </p>
+            const ranking =
+                await resposta.json();
 
-            </div>
 
-        </div>
+            // ==============================
+            // PÓDIO
+            // ==============================
 
-    </footer>
+            for (let i = 0; i < 3; i++) {
+
+                const curso =
+                    document.getElementById(
+                        "curso" + (i + 1)
+                    );
+
+                const pontos =
+                    document.getElementById(
+                        "pontos" + (i + 1)
+                    );
+
+
+                if (ranking[i]) {
+
+                    curso.textContent =
+                        ranking[i].curso;
+
+                    pontos.textContent =
+                        Number(ranking[i].pontos).toLocaleString("pt-BR")
+                        + " PONTOS";
+
+                } else {
+
+                    curso.textContent = "—";
+
+                    pontos.textContent =
+                        "0 PONTOS";
+                }
+
+            }
+
+
+            // ==============================
+            // LISTA DO RANKING
+            // ==============================
+
+            const lista =
+                document.getElementById("rankingList");
+
+            lista.innerHTML = "";
+
+
+            for (let i = 3; i < ranking.length; i++) {
+
+                const item = ranking[i];
+
+                const linha =
+                    document.createElement("div");
+
+                linha.className =
+                    "ranking-row";
+
+
+                const pos =
+                    document.createElement("div");
+
+                pos.className = "pos";
+
+                pos.textContent =
+                    (i + 1) + "º";
+
+
+                const nome =
+                    document.createElement("div");
+
+                nome.className = "name";
+
+                nome.textContent =
+                    item.curso;
+
+
+                const score =
+                    document.createElement("div");
+
+                score.className = "score";
+
+                score.textContent =
+                    Number(item.pontos).toLocaleString("pt-BR")
+                    + " PONTOS";
+
+
+                linha.appendChild(pos);
+                linha.appendChild(nome);
+                linha.appendChild(score);
+
+                lista.appendChild(linha);
+
+            }
+
+
+            if (ranking.length <= 3) {
+
+                const mensagem =
+                    document.createElement("div");
+
+                mensagem.className =
+                    "ranking-row";
+
+                mensagem.innerHTML = `
+                    <div class="pos">—</div>
+                    <div class="name">
+                        Mais cursos serão exibidos aqui
+                    </div>
+                    <div class="score">—</div>
+                `;
+
+                lista.appendChild(mensagem);
+            }
+
+
+            status.textContent =
+                "🟢 Ranking atualizado • atualização automática a cada 5 segundos";
+
+
+        } catch (erro) {
+
+            console.error(erro);
+
+            status.textContent =
+                "⚠️ Não foi possível atualizar o ranking agora.";
+
+        }
+
+    }
+
+
+    atualizarRanking();
+
+
+    setInterval(
+        atualizarRanking,
+        5000
+    );
+
+</script>
 
 </body>
 </html>
